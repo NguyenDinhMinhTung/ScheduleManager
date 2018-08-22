@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.system.schedulemanager.DTO.EvenByDayDTO;
 import com.example.system.schedulemanager.DTO.EvenDTO;
 import com.example.system.schedulemanager.R;
 
@@ -16,10 +17,10 @@ import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
     private Context context;
-    private List<EvenDTO> list;
+    private List<EvenByDayDTO> list;
     private LayoutInflater layoutInflater;
 
-    public MainAdapter(Context context, List<EvenDTO> list) {
+    public MainAdapter(Context context, List<EvenByDayDTO> list) {
         this.context = context;
         this.list = list;
     }
@@ -33,11 +34,12 @@ public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        EvenDTO evenDTO = list.get(position);
-        Date start=evenDTO.getStartTime();
+        EvenByDayDTO evenByDayDTO = list.get(position);
+        Date start=evenByDayDTO.getDate();
 
         holder.txtDay.setText(start.getDay());
         holder.txtYearMonth.setText(start.getYear()+"."+start.getMonth());
+
     }
 
     @Override

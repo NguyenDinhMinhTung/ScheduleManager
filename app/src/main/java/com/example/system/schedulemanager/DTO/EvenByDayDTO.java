@@ -11,4 +11,12 @@ public class EvenByDayDTO {
         this.date = date;
         this.list = list;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public List<EvenDTO> getList() {
+        return list;
+    }
 }
