@@ -12,8 +12,8 @@ public class Database extends SQLiteOpenHelper {
     public static final String TB_EVEN = "EVEN";
 
     public static final String TB_TIMETABLE_ID = "ID";
-    public static final String TB_TIMETABLE_START = "START";
-    public static final String TB_TIMETABLE_END = "END";
+    public static final String TB_TIMETABLE_START = "STARTTIME";
+    public static final String TB_TIMETABLE_END = "ENDTIME";
 
     public static final String TB_OBJECT_ID = "ID";
     public static final String TB_OBJECT_TIMETABLEID = "TIMETABLEID";
@@ -30,8 +30,16 @@ public class Database extends SQLiteOpenHelper {
     public static final String TB_EVEN_TYPE = "TYPE";
     public static final String TB_EVEN_NAME = "NAME";
     public static final String TB_EVEN_OBJECTID = "OBJECTID";
-    public static final String TB_EVEN_START = "START";
-    public static final String TB_EVEN_END = "END";
+    public static final String TB_EVEN_STARTYEAR = "STARTYEAR";
+    public static final String TB_EVEN_STARTMONTH = "STARTMONTH";
+    public static final String TB_EVEN_STARTDAY = "STARTDAY";
+    public static final String TB_EVEN_STARTHOUR = "STARTHOUR";
+    public static final String TB_EVEN_STARTMIN = "STARTMIN";
+    public static final String TB_EVEN_ENDYEAR = "ENDYEAR";
+    public static final String TB_EVEN_ENDMONTH = "ENDMONTH";
+    public static final String TB_EVEN_ENDDAY = "ENDDAY";
+    public static final String TB_EVEN_ENDHOUR = "ENDHOUR";
+    public static final String TB_EVEN_ENDMIN = "ENDMIN";
     public static final String TB_EVEN_NOTE = "NOTE";
 
 
@@ -53,7 +61,10 @@ public class Database extends SQLiteOpenHelper {
 
         String tbEVEN="CREATE TABLE "+TB_EVEN+"("+TB_EVEN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TB_EVEN_TYPE+" INTEGER,"+TB_EVEN_NAME+" TEXT, "+TB_EVEN_OBJECTID+" INTEGER, "
-                + TB_EVEN_START+" TEXT, "+  TB_EVEN_END+" TEXT, "+TB_EVEN_NOTE+" TEXT)";
+                + TB_EVEN_STARTYEAR+" TEXT, "+ TB_EVEN_STARTMONTH+" TEXT, "+ TB_EVEN_STARTDAY+" TEXT, "
+                + TB_EVEN_STARTHOUR+" TEXT, "+ TB_EVEN_STARTMIN+" TEXT, "+  TB_EVEN_ENDYEAR+" TEXT, "
+                +  TB_EVEN_ENDMONTH+" TEXT, "+  TB_EVEN_ENDDAY+" TEXT, "+  TB_EVEN_ENDHOUR+" TEXT, "
+                +  TB_EVEN_ENDMIN+" TEXT, "+TB_EVEN_NOTE+" TEXT)";
 
         sqLiteDatabase.execSQL(tbTIMETABLE);
         sqLiteDatabase.execSQL(tbOBJECT);

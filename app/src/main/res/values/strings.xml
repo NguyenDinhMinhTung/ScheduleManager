@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ScheduleManager</string>
+
+   <string-array name="spinner">
+       <item>fdfd</item>
+   </string-array>
 </resources>
