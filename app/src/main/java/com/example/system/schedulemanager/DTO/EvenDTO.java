@@ -1,20 +1,30 @@
 package com.example.system.schedulemanager.DTO;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class EvenDTO {
-    int id, type, objectID;
+public class EvenDTO implements Serializable {
+    int id, type, objectID, color;
     String name;
     String note;
     Date startTime, endTime;
 
-    public EvenDTO(int type, int objectID, String name, String note, Date startTime, Date endTime) {
+    public EvenDTO(int type, int objectID, int color, String name, String note, Date startTime, Date endTime) {
         this.type = type;
         this.objectID = objectID;
         this.name = name;
+        this.color = color;
         this.note = note;
         this.startTime = startTime;
         this.endTime = endTime;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 
     public int getId() {

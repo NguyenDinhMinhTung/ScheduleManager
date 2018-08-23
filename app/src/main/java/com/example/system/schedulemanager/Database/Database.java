@@ -28,6 +28,7 @@ public class Database extends SQLiteOpenHelper {
 
     public static final String TB_EVEN_ID = "ID";
     public static final String TB_EVEN_TYPE = "TYPE";
+    public static final String TB_EVEN_COLOR = "COLOR";
     public static final String TB_EVEN_NAME = "NAME";
     public static final String TB_EVEN_OBJECTID = "OBJECTID";
     public static final String TB_EVEN_STARTYEAR = "STARTYEAR";
@@ -53,18 +54,18 @@ public class Database extends SQLiteOpenHelper {
                 + TB_TIMETABLE_START + " TEXT, " + TB_TIMETABLE_END + " TEXT)";
 
         String tbOBJECT = "CREATE TABLE " + TB_OBJECT + "(" + TB_OBJECT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TB_OBJECT_TIMETABLEID + " INTEGER, " + TB_OBJECT_OBJECTNAME + " TEXT, "+ TB_OBJECT_PLACE+" TEXT, "
-                + TB_OBJECT_NUM+" INTEGER, "+ TB_OBJECT_NOTE+" TEXT)";
+                + TB_OBJECT_TIMETABLEID + " INTEGER, " + TB_OBJECT_OBJECTNAME + " TEXT, " + TB_OBJECT_PLACE + " TEXT, "
+                + TB_OBJECT_NUM + " INTEGER, " + TB_OBJECT_NOTE + " TEXT)";
 
-        String tbEXAM = "CREATE TABLE "+TB_EXAM+"("+TB_EXAM_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
-                +TB_EXAM_OBJECTID+" INTEGER, "+TB_EXAM_NUM+" INTEGER)";
+        String tbEXAM = "CREATE TABLE " + TB_EXAM + "(" + TB_EXAM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + TB_EXAM_OBJECTID + " INTEGER, " + TB_EXAM_NUM + " INTEGER)";
 
-        String tbEVEN="CREATE TABLE "+TB_EVEN+"("+TB_EVEN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TB_EVEN_TYPE+" INTEGER,"+TB_EVEN_NAME+" TEXT, "+TB_EVEN_OBJECTID+" INTEGER, "
-                + TB_EVEN_STARTYEAR+" TEXT, "+ TB_EVEN_STARTMONTH+" TEXT, "+ TB_EVEN_STARTDAY+" TEXT, "
-                + TB_EVEN_STARTHOUR+" TEXT, "+ TB_EVEN_STARTMIN+" TEXT, "+  TB_EVEN_ENDYEAR+" TEXT, "
-                +  TB_EVEN_ENDMONTH+" TEXT, "+  TB_EVEN_ENDDAY+" TEXT, "+  TB_EVEN_ENDHOUR+" TEXT, "
-                +  TB_EVEN_ENDMIN+" TEXT, "+TB_EVEN_NOTE+" TEXT)";
+        String tbEVEN = "CREATE TABLE " + TB_EVEN + "(" + TB_EVEN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + TB_EVEN_TYPE + " INTEGER," + TB_EVEN_COLOR + " INTEGER, " + TB_EVEN_NAME + " TEXT, " + TB_EVEN_OBJECTID + " INTEGER, "
+                + TB_EVEN_STARTYEAR + " TEXT, " + TB_EVEN_STARTMONTH + " TEXT, " + TB_EVEN_STARTDAY + " TEXT, "
+                + TB_EVEN_STARTHOUR + " TEXT, " + TB_EVEN_STARTMIN + " TEXT, " + TB_EVEN_ENDYEAR + " TEXT, "
+                + TB_EVEN_ENDMONTH + " TEXT, " + TB_EVEN_ENDDAY + " TEXT, " + TB_EVEN_ENDHOUR + " TEXT, "
+                + TB_EVEN_ENDMIN + " TEXT, " + TB_EVEN_NOTE + " TEXT)";
 
         sqLiteDatabase.execSQL(tbTIMETABLE);
         sqLiteDatabase.execSQL(tbOBJECT);
@@ -77,7 +78,7 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-    public SQLiteDatabase open(){
+    public SQLiteDatabase open() {
         return this.getWritableDatabase();
     }
 }

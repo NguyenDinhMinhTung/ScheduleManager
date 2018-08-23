@@ -2,6 +2,7 @@ package com.example.system.schedulemanager.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.system.schedulemanager.DTO.EvenByDayDTO;
-import com.example.system.schedulemanager.DTO.EvenDTO;
 import com.example.system.schedulemanager.R;
+import com.example.system.schedulemanager.Tools;
 
 import java.util.Date;
 import java.util.List;
@@ -23,6 +24,8 @@ public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
     public MainAdapter(Context context, List<EvenByDayDTO> list) {
         this.context = context;
         this.list = list;
+
+        layoutInflater = LayoutInflater.from(context);
     }
 
     @NonNull
@@ -35,11 +38,21 @@ public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         EvenByDayDTO evenByDayDTO = list.get(position);
-        Date start=evenByDayDTO.getDate();
+        Date start = evenByDayDTO.getDate();
 
-        holder.txtDay.setText(start.getDay());
-        holder.txtYearMonth.setText(start.getYear()+"."+start.getMonth());
+        holder.txtDay.setText(String.valueOf(start.getDate()));
 
+        String month = start.getMonth() < 10 ? "0" + start.getMonth() : "" + start.getMonth();
+        holder.txtYearMonth.setText(start.getYear() + "." + month);
+
+        EvenAdapter evenAdapter = new EvenAdapter(context, evenByDayDTO.getList());
+        holder.lstEven.setAdapter(evenAdapter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        holder.lstEven.setLayoutManager(linearLayoutManager);
+
+        holder.txtDayOfWeek.setText(Tools.dayOfWeek(context, start));
+        holder.txtDayOfWeek.setBackgroundResource(Tools.getBackground(start));
     }
 
     @Override

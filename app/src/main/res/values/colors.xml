@@ -3,8 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="gray">#1b1b1b</color>
+    <color name="gray">#2e2e2e</color>
     <color name="white">#ffffff</color>
-    <color name="lightgray">#9b8d8d</color>
+    <color name="lightgray">#9E9E9E</color>
+    <color name="red">#f44336</color>
+    <color name="purple">#9C27B0</color>
+    <color name="indigo">#3F51B5</color>
     <color name="trans">#00ffffff</color>
+    <color name="yellow">#FFC107</color>
+    <color name="teal">#009688</color>
 </resources>

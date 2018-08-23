@@ -17,24 +17,25 @@ public class EvenDAO {
     SQLiteDatabase database;
 
     public EvenDAO(Context context) {
-        Database database = new Database(context);
-        database.open();
+        Database data = new Database(context);
+        database=data.open();
     }
 
     public void addEven(EvenDTO evenDTO) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Database.TB_EVEN_OBJECTID, evenDTO.getObjectID());
         contentValues.put(Database.TB_EVEN_NAME, evenDTO.getName());
+        contentValues.put(Database.TB_EVEN_COLOR, evenDTO.getColor());
 
         contentValues.put(Database.TB_EVEN_STARTYEAR, evenDTO.getStartTime().getYear());
         contentValues.put(Database.TB_EVEN_STARTMONTH, evenDTO.getStartTime().getMonth());
-        contentValues.put(Database.TB_EVEN_STARTDAY, evenDTO.getStartTime().getDay());
+        contentValues.put(Database.TB_EVEN_STARTDAY, evenDTO.getStartTime().getDate());
         contentValues.put(Database.TB_EVEN_STARTHOUR, evenDTO.getStartTime().getHours());
         contentValues.put(Database.TB_EVEN_STARTMIN, evenDTO.getStartTime().getMinutes());
 
         contentValues.put(Database.TB_EVEN_ENDYEAR, evenDTO.getEndTime().getYear());
         contentValues.put(Database.TB_EVEN_ENDMONTH, evenDTO.getEndTime().getMonth());
-        contentValues.put(Database.TB_EVEN_ENDDAY, evenDTO.getEndTime().getDay());
+        contentValues.put(Database.TB_EVEN_ENDDAY, evenDTO.getEndTime().getDate());
         contentValues.put(Database.TB_EVEN_ENDHOUR, evenDTO.getEndTime().getHours());
         contentValues.put(Database.TB_EVEN_ENDMIN, evenDTO.getEndTime().getMinutes());
 
@@ -55,6 +56,7 @@ public class EvenDAO {
             int id = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_ID));
             int objectID = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_OBJECTID));
             int type = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_TYPE));
+            int color=cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_COLOR));
 
             int startYear = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_STARTYEAR));
             int startMonth = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_STARTMONTH));
@@ -75,7 +77,7 @@ public class EvenDAO {
             Date start = new Date(startYear, startMonth, startDay, startHour, startMin);
             Date end = new Date(endYear, endMonth, endDay, endHour, endMin);
 
-            EvenDTO evenDTO = new EvenDTO(type, objectID, name, note, start, end);
+            EvenDTO evenDTO = new EvenDTO(type, objectID,color, name, note, start, end);
             evenDTO.setId(id);
 
             list.add(evenDTO);
@@ -84,6 +86,14 @@ public class EvenDAO {
         }
 
         return list;
+    }
+
+    public void delete(int id){
+        database.delete(Database.TB_EVEN,"id=?",new String[]{Integer.toString(id)});
+    }
+
+    public List<EvenDTO> getListEvenByDate(Date date){
+        return getListEvenByDate(date.getYear(), date.getMonth(), date.getDate());
     }
 
     public List<EvenDTO> getListEvenByDate(int year, int month, int day) {
@@ -99,6 +109,7 @@ public class EvenDAO {
             int id = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_ID));
             int objectID = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_OBJECTID));
             int type = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_TYPE));
+            int color=cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_COLOR));
 
             int startYear = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_STARTYEAR));
             int startMonth = cursor.getInt(cursor.getColumnIndex(Database.TB_EVEN_STARTMONTH));
@@ -119,7 +130,7 @@ public class EvenDAO {
             Date start = new Date(startYear, startMonth, startDay, startHour, startMin);
             Date end = new Date(endYear, endMonth, endDay, endHour, endMin);
 
-            EvenDTO evenDTO = new EvenDTO(type, objectID, name, note, start, end);
+            EvenDTO evenDTO = new EvenDTO(type, objectID,color, name, note, start, end);
             evenDTO.setId(id);
 
             list.add(evenDTO);
