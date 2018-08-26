@@ -41,12 +41,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         evenDAO = new EvenDAO(this);
 
         updateList();
-        
+
         floatingActionButton.setOnClickListener(this);
     }
 
-    public void updateList(){
-        list=new ArrayList<>();
+    public void updateList() {
+        list = new ArrayList<>();
 
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -73,13 +73,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         return 1;
 
                     } else {
-                        if (m1<m2){
+                        if (m1 < m2) {
                             return -1;
 
-                        } else if (m1>m2){
+                        } else if (m1 > m2) {
                             return 1;
 
-                        }else{
+                        } else {
                             return 0;
                         }
                     }
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (id) {
             case R.id.mainFAB:
-                Intent intent = new Intent(MainActivity.this, AddEvenActivity.class);
+                Intent intent = new Intent(MainActivity.this, AddTimeTableActivity.class);
                 startActivity(intent);
                 break;
         }

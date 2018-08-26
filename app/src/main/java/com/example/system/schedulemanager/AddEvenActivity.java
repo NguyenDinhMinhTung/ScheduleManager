@@ -10,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.format.Time;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -26,6 +28,7 @@ public class AddEvenActivity extends AppCompatActivity implements View.OnClickLi
     final int REQUEST_CODE = 111;
 
     Button btnStartDate, btnStartTime, btnEndDate, btnEndTime, btnSave, btnCancel, btnColorSelect;
+    Switch swtAllDay;
     EditText txtTitle, txtNote;
 
     int startYear, startMonth, startDay, endYear, endMonth, endDay;
@@ -49,6 +52,7 @@ public class AddEvenActivity extends AppCompatActivity implements View.OnClickLi
         txtTitle = findViewById(R.id.txtTitle);
         txtNote = findViewById(R.id.txtAddNote);
         btnColorSelect = findViewById(R.id.btnColorSelect);
+        swtAllDay=findViewById(R.id.swtAllDay);
 
         btnStartDate.setOnClickListener(this);
         btnStartTime.setOnClickListener(this);
@@ -57,6 +61,19 @@ public class AddEvenActivity extends AppCompatActivity implements View.OnClickLi
         btnSave.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
         btnColorSelect.setOnClickListener(this);
+
+        swtAllDay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if (checked){
+                    btnEndTime.setVisibility(View.GONE);
+                    btnStartTime.setVisibility(View.GONE);
+                }else{
+                    btnEndTime.setVisibility(View.VISIBLE);
+                    btnStartTime.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         evenDAO = new EvenDAO(this);
 
@@ -202,6 +219,7 @@ public class AddEvenActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.btnColorSelect:
                 Intent intent = new Intent(AddEvenActivity.this, PopupColorActivity.class);
+                intent.putExtra("color",color);
                 startActivityForResult(intent, REQUEST_CODE);
         }
     }

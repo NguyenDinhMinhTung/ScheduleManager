@@ -12,12 +12,15 @@ public class Database extends SQLiteOpenHelper {
     public static final String TB_EVEN = "EVEN";
 
     public static final String TB_TIMETABLE_ID = "ID";
+    public static final String TB_TIMETABLE_TITLE = "TITLE";
     public static final String TB_TIMETABLE_START = "STARTTIME";
     public static final String TB_TIMETABLE_END = "ENDTIME";
 
     public static final String TB_OBJECT_ID = "ID";
     public static final String TB_OBJECT_TIMETABLEID = "TIMETABLEID";
     public static final String TB_OBJECT_OBJECTNAME = "OBJECTNAME";
+    public static final String TB_OBJECT_DAYOFWEEK = "DAYOFWEEK";
+    public static final String TB_OBJECT_JIGEN = "JIGEN";
     public static final String TB_OBJECT_PLACE = "PLACE";
     public static final String TB_OBJECT_NUM = "NUM";
     public static final String TB_OBJECT_NOTE = "NOTE";
@@ -51,11 +54,11 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String tbTIMETABLE = "CREATE TABLE " + TB_TIMETABLE + " ( " + TB_TIMETABLE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TB_TIMETABLE_START + " TEXT, " + TB_TIMETABLE_END + " TEXT)";
+                + TB_TIMETABLE_TITLE + " TEXT, " + TB_TIMETABLE_START + " TEXT, " + TB_TIMETABLE_END + " TEXT)";
 
         String tbOBJECT = "CREATE TABLE " + TB_OBJECT + "(" + TB_OBJECT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TB_OBJECT_TIMETABLEID + " INTEGER, " + TB_OBJECT_OBJECTNAME + " TEXT, " + TB_OBJECT_PLACE + " TEXT, "
-                + TB_OBJECT_NUM + " INTEGER, " + TB_OBJECT_NOTE + " TEXT)";
+                + TB_OBJECT_TIMETABLEID + " INTEGER, " + TB_OBJECT_DAYOFWEEK + "INTEGER, " + TB_OBJECT_JIGEN + "INTEGER, "
+                + TB_OBJECT_OBJECTNAME + " TEXT, " + TB_OBJECT_PLACE + " TEXT, " + TB_OBJECT_NUM + " INTEGER, " + TB_OBJECT_NOTE + " TEXT)";
 
         String tbEXAM = "CREATE TABLE " + TB_EXAM + "(" + TB_EXAM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TB_EXAM_OBJECTID + " INTEGER, " + TB_EXAM_NUM + " INTEGER)";

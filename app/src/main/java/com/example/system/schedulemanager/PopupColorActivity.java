@@ -19,6 +19,8 @@ public class PopupColorActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_popup_colors);
 
+        selectedColor=getIntent().getIntExtra("color",R.color.red);
+
         btnRed=findViewById(R.id.btnRed);
         btnBlue=findViewById(R.id.btnBlue);
         btnYellow=findViewById(R.id.btnYellow);
@@ -34,6 +36,7 @@ public class PopupColorActivity extends AppCompatActivity implements View.OnClic
         btnOK.setOnClickListener(this);
 
         setTitle("Color Select");
+        btnOK.setBackgroundColor(getResources().getColor(selectedColor));
     }
 
     @Override

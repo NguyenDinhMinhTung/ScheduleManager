@@ -16,9 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddEvenActivity"/>
-        <activity android:name=".PopupColorActivity"
-            android:theme="@style/popupActivity"/>
+        <activity android:name=".AddEvenActivity" />
+        <activity
+            android:name=".PopupColorActivity"
+            android:theme="@style/popupActivity" />
+        <activity android:name=".AddObjectActivity" />
+        <activity android:name=".TimeTableManagerActivity" />
+        <activity android:name=".AddTimeTableActivity"></activity>
     </application>
 
 </manifest>
