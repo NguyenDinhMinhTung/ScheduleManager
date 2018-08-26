@@ -24,7 +24,6 @@ public class ObjectDAO {
 
     public void addObject(ObjectDTO objectDTO) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Database.TB_OBJECT_ID, objectDTO.getId());
         contentValues.put(Database.TB_OBJECT_DAYOFWEEK, objectDTO.getDayOfWeek());
         contentValues.put(Database.TB_OBJECT_JIGEN, objectDTO.getJigen());
         contentValues.put(Database.TB_OBJECT_OBJECTNAME, objectDTO.getObjectName());
