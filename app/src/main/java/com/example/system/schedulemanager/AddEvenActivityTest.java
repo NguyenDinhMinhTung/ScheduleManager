@@ -6,6 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -53,6 +55,12 @@ public class AddEvenActivityTest extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_even_test);
+
+        Toolbar toolbar=findViewById(R.id.toolbarAddEven);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Tools.setStatusBarColor(this, R.color.red);
 
         spnObjectEven = findViewById(R.id.spnObjectEven2);
         spnJigen = findViewById(R.id.spnJigen);
@@ -221,15 +229,24 @@ public class AddEvenActivityTest extends AppCompatActivity implements View.OnCli
         TabHost.TabSpec spec;
         spec = tabHost.newTabSpec("tab1");
         spec.setContent(R.id.tabAddNormalEven);
-        spec.setIndicator("ddd");
+        spec.setIndicator("Add Even");
         tabHost.addTab(spec);
 
         spec = tabHost.newTabSpec("tab2");
         spec.setContent(R.id.tabAddObjectEven);
-        spec.setIndicator("dsfsf");
+        spec.setIndicator("Add Object Even");
         tabHost.addTab(spec);
 
         tabHost.setCurrentTab(0);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

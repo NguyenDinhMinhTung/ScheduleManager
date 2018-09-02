@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarAddEven"
+        android:background="@color/red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"
@@ -15,6 +21,7 @@
 
             <TabWidget
                 android:id="@android:id/tabs"
+                android:background="@color/red"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></TabWidget>
 
