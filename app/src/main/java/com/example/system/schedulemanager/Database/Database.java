@@ -29,6 +29,17 @@ public class Database extends SQLiteOpenHelper {
     public static final String TB_EXAM_OBJECTID = "OBJECTID";
     public static final String TB_EXAM_NUM = "NUM";
 
+    /*
+    Even Type:
+        0: 普通
+        1: 終日
+        2: 科目（イベントでない）
+        3: レポート
+        4: 休講
+        5: 補講
+        6: 試験
+        7: その他
+     */
     public static final String TB_EVEN_ID = "ID";
     public static final String TB_EVEN_TYPE = "TYPE";
     public static final String TB_EVEN_COLOR = "COLOR";
@@ -57,7 +68,7 @@ public class Database extends SQLiteOpenHelper {
                 + TB_TIMETABLE_TITLE + " TEXT, " + TB_TIMETABLE_START + " TEXT, " + TB_TIMETABLE_END + " TEXT)";
 
         String tbOBJECT = "CREATE TABLE " + TB_OBJECT + "(" + TB_OBJECT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TB_OBJECT_TIMETABLEID + " INTEGER, " + TB_OBJECT_DAYOFWEEK + "INTEGER, " + TB_OBJECT_JIGEN + "INTEGER, "
+                + TB_OBJECT_TIMETABLEID + " INTEGER, " + TB_OBJECT_DAYOFWEEK + " INTEGER, " + TB_OBJECT_JIGEN + " INTEGER, "
                 + TB_OBJECT_OBJECTNAME + " TEXT, " + TB_OBJECT_PLACE + " TEXT, " + TB_OBJECT_NUM + " INTEGER, " + TB_OBJECT_NOTE + " TEXT)";
 
         String tbEXAM = "CREATE TABLE " + TB_EXAM + "(" + TB_EXAM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "

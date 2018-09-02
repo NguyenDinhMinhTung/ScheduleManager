@@ -40,10 +40,11 @@ public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
         EvenByDayDTO evenByDayDTO = list.get(position);
         Date start = evenByDayDTO.getDate();
 
-        holder.txtDay.setText(String.valueOf(start.getDate()));
+        int date = start.getDate();
+        holder.txtDay.setText(String.valueOf(date < 10 ? "0" + date : date));
 
-        String month = start.getMonth() < 10 ? "0" + start.getMonth() : "" + start.getMonth();
-        holder.txtYearMonth.setText(start.getYear() + "." + month);
+        String month = start.getMonth() < 10 ? "0" + (start.getMonth()) : "" + (start.getMonth());
+        holder.txtYearMonth.setText((start.getYear()) + "." + month);
 
         EvenAdapter evenAdapter = new EvenAdapter(context, evenByDayDTO.getList());
         holder.lstEven.setAdapter(evenAdapter);
@@ -51,7 +52,7 @@ public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         holder.lstEven.setLayoutManager(linearLayoutManager);
 
-        holder.txtDayOfWeek.setText(Tools.dayOfWeek(context, start));
+        holder.txtDayOfWeek.setText(Tools.getStringDayOfWeek(context, start));
         holder.txtDayOfWeek.setBackgroundResource(Tools.getBackground(start));
     }
 

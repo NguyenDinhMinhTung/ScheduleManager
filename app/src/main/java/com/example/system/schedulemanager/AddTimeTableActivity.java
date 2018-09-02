@@ -36,7 +36,7 @@ public class AddTimeTableActivity extends AppCompatActivity implements View.OnCl
 
         Tools.setStatusBarColor(AddTimeTableActivity.this, R.color.indigo);
 
-        timeTableDAO=new TimeTableDAO(this);
+        timeTableDAO = new TimeTableDAO(this);
 
         txtTitle = findViewById(R.id.txtTitleAddTimeTable);
         txtStartDay = findViewById(R.id.txtStartDayAddTimeTable);
@@ -50,9 +50,9 @@ public class AddTimeTableActivity extends AppCompatActivity implements View.OnCl
         txtEndDay.setOnClickListener(this);
 
         Calendar calendar = Calendar.getInstance();
-        startYear = calendar.get(Calendar.YEAR);
-        startMonth = calendar.get(Calendar.MONTH);
-        startDay = calendar.get(Calendar.DATE);
+        endYear = startYear = calendar.get(Calendar.YEAR);
+        endMonth = startMonth = calendar.get(Calendar.MONTH);
+        endDay = startDay = calendar.get(Calendar.DATE);
     }
 
     @Override
@@ -67,6 +67,8 @@ public class AddTimeTableActivity extends AppCompatActivity implements View.OnCl
                 TimeTableDTO timeTableDTO = new TimeTableDTO(0, txtTitle.getText().toString(), start, end);
 
                 timeTableDAO.addTimeTable(timeTableDTO);
+
+                finish();
                 break;
 
             case R.id.btnCancelAddTimeTable:
@@ -77,12 +79,13 @@ public class AddTimeTableActivity extends AppCompatActivity implements View.OnCl
                 DatePickerDialog startDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        Date date = new Date(i - 1900, i1, i2, 0, 0, 0);
+                        Date dformat = new Date(i-1900, i1, i2, 0, 0, 0);
+                        Date date=new Date(i,i1+1,i2,0,0,0);
                         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
-                        txtStartDay.setText(dateFormat.format(date) + " (" + Tools.shortDayOfWeek(AddTimeTableActivity.this, date) + ")");
+                        txtStartDay.setText(dateFormat.format(dformat) + " (" + Tools.shortDayOfWeek(AddTimeTableActivity.this, date) + ")");
                         startYear = i;
-                        startMonth = i1;
+                        startMonth = i1+1;
                         startDay = i2;
                     }
                 }, startYear, startMonth, startDay);
@@ -94,12 +97,13 @@ public class AddTimeTableActivity extends AppCompatActivity implements View.OnCl
                 DatePickerDialog endDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        Date date = new Date(i - 1900, i1, i2, 0, 0, 0);
+                        Date dformat = new Date(i-1900, i1, i2, 0, 0, 0);
+                        Date date=new Date(i,i1+1,i2,0,0,0);
                         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
-                        txtEndDay.setText(dateFormat.format(date) + " (" + Tools.shortDayOfWeek(AddTimeTableActivity.this, date) + ")");
+                        txtEndDay.setText(dateFormat.format(dformat) + " (" + Tools.shortDayOfWeek(AddTimeTableActivity.this, date) + ")");
                         endYear = i;
-                        endMonth = i1;
+                        endMonth = i1+1;
                         endDay = i2;
                     }
                 }, endYear, endMonth, endDay);

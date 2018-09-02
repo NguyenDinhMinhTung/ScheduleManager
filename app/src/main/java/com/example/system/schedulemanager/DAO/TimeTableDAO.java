@@ -32,7 +32,7 @@ public class TimeTableDAO {
         database.insert(Database.TB_TIMETABLE, null, contentValues);
     }
 
-    public List<TimeTableDTO> getListObject() {
+    public List<TimeTableDTO> getListTimeTable() {
         List<TimeTableDTO> list = new ArrayList<>();
 
         String querry = "SELECT * FROM " + Database.TB_TIMETABLE;

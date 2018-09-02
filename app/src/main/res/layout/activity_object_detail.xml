@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ObjectDetail"
+    android:columnCount="2"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+        <TextView android:text="@string/object_name"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="3dp"/>
+        <TextView android:id="@+id/txtObjectNameObjectDetail"
+            android:textColor="@color/gray"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView android:text="@string/place"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="3dp"/>
+        <TextView android:id="@+id/txtPlaceObjectDetail"
+            android:textColor="@color/gray"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView android:text="@string/dayofweek"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="3dp"
+            />
+        <TextView android:id="@+id/txtDayOfWeekObjectDetail"
+            android:textColor="@color/gray"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView android:text="@string/Jigen"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="3dp"/>
+        <TextView android:id="@+id/txtJigenObjectDetail"
+            android:textColor="@color/gray"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView android:text="@string/number"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="3dp"/>
+        <TextView android:id="@+id/txtNumObjectDetail"
+            android:textColor="@color/gray"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView android:text="@string/note"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="3dp"/>
+        <TextView android:id="@+id/txtNoteObjectDetail"
+            android:textColor="@color/gray"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="3dp"/>
+    </GridLayout>
+
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView android:id="@+id/txtCloseObjectDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:text="@string/close"
+            />
+
+        <TextView
+            android:id="@+id/txtDeleteObjectDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete"
+            android:textColor="@color/red"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView android:id="@+id/txtEditObjectDetail"
+            android:textColor="@color/indigo"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/edit"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+</LinearLayout>

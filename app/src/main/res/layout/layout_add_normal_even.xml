@@ -9,32 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lightgray">
-
-        <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/trans"
-            android:text="Cancel"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/trans"
-            android:text="Save"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:background="@color/white">
 
         <LinearLayout
@@ -70,12 +44,6 @@
                     android:layout_marginRight="20dp"
                     android:background="@drawable/button_color"
                     android:backgroundTint="@color/red" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
             </LinearLayout>
 
             <LinearLayout
@@ -201,4 +169,34 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/btnCancelAddNormalEven"
+                android:layout_weight="1"
+                android:text="@string/cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_red"
+                android:layout_margin="5dp"/>
+
+            <Button
+                android:id="@+id/btnSaveAddNormalEven"
+                android:layout_weight="1"
+                android:text="@string/save"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_green"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

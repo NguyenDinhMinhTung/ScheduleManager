@@ -40,6 +40,7 @@
             android:columnCount="1"
             android:rowCount="5">
             <LinearLayout
+                android:id="@+id/layoutjigen1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -66,6 +67,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutjigen2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -92,6 +94,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutjigen3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -118,6 +121,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutjigen4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -144,6 +148,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutjigen5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"

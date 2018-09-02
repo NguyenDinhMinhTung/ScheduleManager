@@ -1,6 +1,8 @@
 package com.example.system.schedulemanager.DTO;
 
-public class ObjectDTO {
+import java.io.Serializable;
+
+public class ObjectDTO implements Serializable{
     int id, timetableid, num, dayOfWeek, jigen;
     String objectName, Place, note;
 

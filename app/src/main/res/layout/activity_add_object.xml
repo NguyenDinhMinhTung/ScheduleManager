@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".AddTimeTableActivity"
+    tools:context=".AddObjectActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -15,13 +15,13 @@
         android:background="@color/indigo">
 
         <EditText
-            android:id="@+id/txtTitleAddTimeTable"
+            android:id="@+id/txtObjectNameAddObject"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:backgroundTint="@color/white"
-            android:hint="Title"
+            android:hint="@string/object_name"
             android:textSize="30sp"
             android:gravity="center"
             />
@@ -36,38 +36,49 @@
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start Day"
+            android:text="@string/place"
             android:textColor="@color/gray" />
 
         <EditText
-            android:id="@+id/txtStartDayAddTimeTable"
+            android:id="@+id/txtPlaceAddObject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
             android:textColor="@color/gray"
             android:backgroundTint="@color/red"
-            android:cursorVisible="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
+            android:singleLine="true"
             android:textSize="20sp"/>
 
         <TextView
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="End Day"
+            android:text="@string/number"
             android:textColor="@color/gray" />
 
         <EditText
-            android:id="@+id/txtEndDayAddTimeTable"
+            android:id="@+id/txtNumberAddObject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
+            android:inputType="numberSigned"
             android:textColor="@color/gray"
-            android:cursorVisible="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
             android:backgroundTint="@color/red"
+            android:singleLine="true"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/note"
+            android:textColor="@color/gray" />
+
+        <EditText
+            android:id="@+id/txtNoteAddObject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:backgroundTint="@color/red"
+            android:singleLine="true"
             android:textSize="20sp"/>
 
         <LinearLayout
@@ -76,7 +87,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="20dp">
             <Button
-                android:id="@+id/btnCancelAddTimeTable"
+                android:id="@+id/btnCancelAddObject"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -84,7 +95,7 @@
                 android:text="Cancel"/>
 
             <Button
-                android:id="@+id/btnOKAddTimeTable"
+                android:id="@+id/btnOKAddObject"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="3"
                 android:layout_width="0dp"

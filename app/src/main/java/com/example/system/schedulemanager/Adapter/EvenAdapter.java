@@ -11,11 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.system.schedulemanager.AddEvenActivity;
+import com.example.system.schedulemanager.AddEvenActivityTest;
+import com.example.system.schedulemanager.DAO.ObjectDAO;
 import com.example.system.schedulemanager.DTO.EvenDTO;
+import com.example.system.schedulemanager.DTO.ObjectDTO;
 import com.example.system.schedulemanager.R;
+import com.example.system.schedulemanager.Tools;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,10 +27,12 @@ public class EvenAdapter extends RecyclerView.Adapter<EvenViewHolder> {
     Context context;
     List<EvenDTO> list;
     LayoutInflater inflater;
+    ObjectDAO objectDAO;
 
     public EvenAdapter(Context context, List<EvenDTO> list) {
         this.context = context;
         this.list = list;
+        objectDAO = new ObjectDAO(context);
 
         inflater = LayoutInflater.from(context);
     }
@@ -50,10 +54,23 @@ public class EvenAdapter extends RecyclerView.Adapter<EvenViewHolder> {
 
         holder.txtEvenName.setText(evenDTO.getName());
 
-        String timeFormat = "HH:mm";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(timeFormat);
+        if (evenDTO.getType() >= 2) {
+            ObjectDTO objectDTO = objectDAO.getObjectByID(evenDTO.getObjectID());
 
-        holder.txtTime.setText(simpleDateFormat.format(start) + " - " + simpleDateFormat.format(end));
+            holder.txtTime.setText(Tools.getJigen(objectDTO.getJigen()));
+
+            if (evenDTO.getType() >= 3) {
+                holder.txtObjectEven.setVisibility(View.VISIBLE);
+                holder.txtObjectEven.setText(Tools.getStringObjetEven(evenDTO.getType() - 3));
+            }
+
+        } else {
+            String timeFormat = "HH:mm";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(timeFormat);
+
+            holder.txtTime.setText(simpleDateFormat.format(start) + " - " + simpleDateFormat.format(end));
+        }
+
         if (note == null || note.equals("")) {
             holder.txtNote.setVisibility(View.GONE);
         } else {
@@ -63,8 +80,8 @@ public class EvenAdapter extends RecyclerView.Adapter<EvenViewHolder> {
         holder.evenLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context, AddEvenActivity.class);
-                intent.putExtra("even",evenDTO);
+                Intent intent = new Intent(context, AddEvenActivityTest.class);
+                intent.putExtra("even", evenDTO);
                 context.startActivity(intent);
             }
         });
@@ -79,7 +96,7 @@ public class EvenAdapter extends RecyclerView.Adapter<EvenViewHolder> {
 }
 
 class EvenViewHolder extends RecyclerView.ViewHolder {
-    public TextView txtEvenName, txtTime, txtNote;
+    public TextView txtEvenName, txtTime, txtNote, txtObjectEven;
     LinearLayout evenLayout, colorBar;
 
     public EvenViewHolder(View itemView) {
@@ -87,7 +104,8 @@ class EvenViewHolder extends RecyclerView.ViewHolder {
         txtEvenName = itemView.findViewById(R.id.txtEvenName);
         txtTime = itemView.findViewById(R.id.txtTime);
         txtNote = itemView.findViewById(R.id.txtNote);
-        evenLayout=itemView.findViewById(R.id.evenLayout);
-        colorBar=itemView.findViewById(R.id.colorBar);
+        evenLayout = itemView.findViewById(R.id.evenLayout);
+        colorBar = itemView.findViewById(R.id.colorBar);
+        txtObjectEven = itemView.findViewById(R.id.txtObjectEven);
     }
 }

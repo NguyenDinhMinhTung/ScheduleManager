@@ -16,4 +16,22 @@
     <string name="fri">Fri</string>
     <string name="sat">Sat</string>
     <string name="sun">Sun</string>
+    <string name="place">Place</string>
+    <string name="object_name">Object Name</string>
+    <string name="number">Number</string>
+    <string name="note">Note</string>
+    <string name="title">Title</string>
+    <string name="dayofweek">Day Of Week</string>
+    <string name="Jigen">jigen</string>
+    <string name="close">Close</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="even">even</string>
+    <string name="cancel">cancel</string>
+    <string name="ok">OK</string>
+    <string name="save">Save</string>
+
+    <string-array name="strSpinnerObjectEven">
+        <item>fdfdfdfdfd</item>
+    </string-array>
 </resources>
