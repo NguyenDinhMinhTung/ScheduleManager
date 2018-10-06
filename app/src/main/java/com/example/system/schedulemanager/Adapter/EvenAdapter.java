@@ -2,6 +2,7 @@ package com.example.system.schedulemanager.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -60,8 +61,11 @@ public class EvenAdapter extends RecyclerView.Adapter<EvenViewHolder> {
             holder.txtTime.setText(Tools.getJigen(objectDTO.getJigen()));
 
             if (evenDTO.getType() >= 3) {
+                int[] colorID={R.color.yellow, R.color.lightgreen, R.color.purple, R.color.red, R.color.teal};
                 holder.txtObjectEven.setVisibility(View.VISIBLE);
                 holder.txtObjectEven.setText(Tools.getStringObjetEven(evenDTO.getType() - 3));
+
+                holder.txtObjectEven.setBackgroundTintList(ColorStateList.valueOf(context.getResources().getColor(colorID[evenDTO.getType()-3])));
             }
 
         } else {

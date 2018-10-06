@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.system.schedulemanager.Adapter.TimeTableAdapter;
@@ -26,6 +28,13 @@ public class TimeTableManagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_table_manager);
 
+        Toolbar toolbar=findViewById(R.id.toolbarTimeTableManager);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Time Table Manager");
+
         lstTimeTableManager=findViewById(R.id.lstTimeTableManager);
         fab=findViewById(R.id.fabTimeTableManager);
 
@@ -40,6 +49,16 @@ public class TimeTableManagerActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+       switch (item.getItemId()){
+           case android.R.id.home:
+               finish();
+               break;
+       }
+        return super.onOptionsItemSelected(item);
     }
 
     void updateList(){

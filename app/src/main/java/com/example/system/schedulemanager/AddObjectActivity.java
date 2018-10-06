@@ -12,7 +12,7 @@ import com.example.system.schedulemanager.DTO.ObjectDTO;
 
 public class AddObjectActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText txtObjectName, txtPlace, txtNote, txtNum;
+    EditText txtObjectName, txtPlace, txtNote, txtNum, txtNumberOfUnits, txtExamNum;
     Button btnOK, btnCancel;
 
     ObjectDAO objectDAO;
@@ -31,6 +31,8 @@ public class AddObjectActivity extends AppCompatActivity implements View.OnClick
         txtPlace = findViewById(R.id.txtPlaceAddObject);
         txtNote = findViewById(R.id.txtNoteAddObject);
         txtNum = findViewById(R.id.txtNumberAddObject);
+        txtNumberOfUnits=findViewById(R.id.txtNumberOfUnitsAddObject);
+        txtExamNum=findViewById(R.id.txtExamNumAddObject);
 
         btnOK = findViewById(R.id.btnOKAddObject);
         btnCancel = findViewById(R.id.btnCancelAddObject);
@@ -68,11 +70,13 @@ public class AddObjectActivity extends AppCompatActivity implements View.OnClick
                 }
 
                 int num = Integer.parseInt(txtNum.getText().toString());
+                int numberOfUnit=Integer.parseInt(txtNumberOfUnits.getText().toString());
+
                 String note = txtNote.getText().toString();
                 String place = txtNote.getText().toString();
                 String objectname = txtObjectName.getText().toString();
 
-                ObjectDTO objectDTO = new ObjectDTO(0, timetableid, dayofweek, jigen, num, objectname, place, note);
+                ObjectDTO objectDTO = new ObjectDTO(0, timetableid, dayofweek, jigen, num,numberOfUnit, objectname, place, note);
 
                 objectDAO.addObject(objectDTO);
 

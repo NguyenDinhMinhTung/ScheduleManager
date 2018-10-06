@@ -2,19 +2,28 @@ package com.example.system.schedulemanager.DTO;
 
 import java.io.Serializable;
 
-public class ObjectDTO implements Serializable{
-    int id, timetableid, num, dayOfWeek, jigen;
+public class ObjectDTO implements Serializable {
+    int id, timetableid, num, dayOfWeek, jigen, numOfUnits;
     String objectName, Place, note;
 
-    public ObjectDTO(int id, int timetableid, int dayOfWeek, int jigen, int num, String objectName, String place, String note) {
+    public ObjectDTO(int id, int timetableid, int dayOfWeek, int jigen, int num, int numOfUnits, String objectName, String place, String note) {
         this.id = id;
         this.timetableid = timetableid;
         this.num = num;
         this.objectName = objectName;
         Place = place;
         this.note = note;
-        this.dayOfWeek=dayOfWeek;
-        this.jigen=jigen;
+        this.dayOfWeek = dayOfWeek;
+        this.jigen = jigen;
+        this.numOfUnits = numOfUnits;
+    }
+
+    public int getNumOfUnits() {
+        return numOfUnits;
+    }
+
+    public void setNumOfUnits(int numOfUnits) {
+        this.numOfUnits = numOfUnits;
     }
 
     public int getDayOfWeek() {
